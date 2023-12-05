@@ -2,10 +2,11 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"net/http"
 	"time"
+
+	"github.com/silastgoes/client-server-api/client/save"
 )
 
 func main() {
@@ -25,7 +26,6 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		bodyString := string(bodyBytes)
-		fmt.Println(bodyString)
+		save.WritePrice(string(bodyBytes))
 	}
 }
