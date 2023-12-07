@@ -22,6 +22,8 @@ func get(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	repobid.Save(db, bid)
+	if err = repobid.Save(db, bid); err != nil {
+		panic(err)
+	}
 	json.NewEncoder(w).Encode(bid.Bid)
 }
